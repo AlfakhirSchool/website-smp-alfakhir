@@ -1,0 +1,58 @@
+{
+  "name": "alfakhirv2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.3.3",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.20",
+    "@reduxjs/toolkit": "^2.0.1",
+    "@types/react-slick": "^0.23.12",
+    "axios": "^1.13.2",
+    "bootstrap": "^5.3.2",
+    "framer-motion": "^12.12.1",
+    "googleapis": "^166.0.0",
+    "next": "14.2.33",
+    "next-sanity": "^7.1.4",
+    "react": "^18",
+    "react-bootstrap": "^2.9.1",
+    "react-cookie-consent": "^9.0.0",
+    "react-countup": "^6.5.0",
+    "react-dom": "^18",
+    "react-hook-form": "^7.66.1",
+    "react-icons": "^5.5.0",
+    "react-redux": "^9.0.4",
+    "react-slick": "^0.29.0",
+    "react-toastify": "^9.1.3",
+    "sanity": "^3.20.2",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.8",
+    "yet-another-react-lightbox": "^3.23.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
+  "description": "> 🏫 Visit the live site: [smpialfakhir.sch.id](https://smpialfakhir.sch.id)",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redheet/alfakhirV2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/redheet/alfakhirV2/issues"
+  },
+  "homepage": "https://github.com/redheet/alfakhirV2#readme"
+}
