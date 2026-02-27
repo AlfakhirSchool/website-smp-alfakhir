@@ -4,7 +4,7 @@ import Layout from "@/component/layout/Layout";
 
 export const metadata: Metadata = {
   title: "Pengumuman Observasi Siswa & Orang Tua | SMP Islam Modern Al-Fakhir",
-  description: "Developed by Nozazi",
+  description: "Official Website SMP Islam Modern Al-Fakhir", // Saya sarankan ganti deskripsinya agar lebih profesional
 };
 
 const page = () => {
@@ -12,9 +12,10 @@ const page = () => {
     <Layout>
       <iframe
         className="pdf_viewer"
-        src="https://drive.google.com/file/d/10s3J2sUbHPnVijA2_28khgBQ_fCin4XAgit /preview"
+        src="https://drive.google.com/file/d/10s3J2sUbHPnVijA2_28khgBQ_fCin4XAgit/preview"
         width="100%"
         height="1000"
+        style={{ border: "none" }} // Tambahan agar tampilan lebih rapi
       />
     </Layout>
   );
