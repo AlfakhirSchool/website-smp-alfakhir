@@ -10,8 +10,8 @@ const PengumumanPage = () => {
     setMounted(true);
   }, []);
 
-  const pdfUrl = "https://drive.google.com/file/d/1QFiDYUmSqVPYU9hFrE0eWM2N6XRUQOtW/preview";
-  const downloadUrl = "https://drive.google.com/file/d/1QFiDYUmSqVPYU9hFrE0eWM2N6XRUQOtW/view?usp=sharing";
+  const pdfUrl = "https://drive.google.com/file/d/1QkfWCN4TcqNbHEWSyJlJ3aQMJwC9PDwU/preview";
+  const downloadUrl = "https://drive.google.com/file/d/1QkfWCN4TcqNbHEWSyJlJ3aQMJwC9PDwU/view?usp=sharing";
 
   if (!mounted) return null;
 
