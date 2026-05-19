@@ -104,13 +104,13 @@ const NavigationSection = ({ position, btnPosition, navRef }: Props) => {
               </a>
             </li>
             <li>
-              <SubNavlink href="/pengumuman-1">Hasil Observasi 1</SubNavlink>
+              <SubNavlink href="/pengumuman-1">Hasil Observasi 2025</SubNavlink>
             </li>
             <li>
-              <SubNavlink href="/pengumuman-2">Hasil Observasi 2</SubNavlink>
+              <SubNavlink href="/pengumuman-2">Hasil Observasi Gel.1 2026</SubNavlink>
             </li>
             <li>
-              {/* <SubNavlink href="/pengumuman-3"> Hasil Observasi 3 </SubNavlink> */}
+              <SubNavlink href="/pengumuman-3">Hasil Observasi Gel.2 2026</SubNavlink>
             </li>
           </ul>
         </li>

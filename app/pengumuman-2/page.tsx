@@ -63,14 +63,14 @@ const PengumumanPage = () => {
             margin: '0 0 5px 0', 
             lineHeight: '1.1'
           }}>
-            Surat Keputusan <br/>
+            Hasil Observasi <br/>
             <span style={{ 
               color: '#14b8a6', 
               fontWeight: '1000',
               fontSize: '1.2em',
               display: 'inline-block',
               marginTop: '5px'
-            }}>PPDB</span>
+            }}>Gel. 1 2026</span>
           </h1>
           
           <p style={{ color: '#64748b', fontSize: '14px', margin: '0 0 25px 0', fontWeight: '500' }}>
