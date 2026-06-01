@@ -6,7 +6,7 @@ import TermSection from "@/component/terms/TermSection";
 
 export const metadata: Metadata = {
   title: "AlFakhir Terms And Condition",
-  description: "Developed by Nozazi",
+  description: "Developed by Feri",
 };
 const page = () => {
   return (

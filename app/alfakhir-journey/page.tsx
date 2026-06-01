@@ -4,7 +4,7 @@ import Layout from "@/component/layout/Layout";
 
 export const metadata: Metadata = {
   title: "Pengumuman Observasi Siswa & Orang Tua | SMP Islam Modern Al-Fakhir",
-  description: "Developed by Nozazi",
+  description: "Developed by Feri",
 };
 
 const page = () => {

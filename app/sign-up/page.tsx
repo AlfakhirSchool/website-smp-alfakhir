@@ -6,7 +6,7 @@ import RegisterSection from "@/component/authentication/RegisterSection";
 
 export const metadata: Metadata = {
   title: "SMP Islam Modern Al-Fakhir | Pendaftaran Online",
-  description: "Developed by Nozazi",
+  description: "Developed by Feri",
 };
 const page = () => {
   return (

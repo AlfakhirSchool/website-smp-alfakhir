@@ -9,7 +9,7 @@ import { getCourse, getActivity } from "@/sanity/sanity.query";
 
 export const metadata: Metadata = {
   title: "Fasilitas Kami | SMP Islam Modern Al-Fakhir",
-  description: "Developed by Nozazi",
+  description: "Developed by Feri",
 };
 const page = async () => {
   // const course: CourseType[] = await getCourse();

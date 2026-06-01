@@ -7,7 +7,7 @@ import BannerSection from "@/component/banner/BannerSection";
 
 export const metadata: Metadata = {
   title: "Tujuan Sekolah | SMP Islam Modern Al-Fakhir",
-  description: "Developed by Nozazi",
+  description: "Developed by Feri",
 };
 
 const page = () => {

@@ -8,7 +8,7 @@ import { getBlog } from "@/sanity/sanity.query";
 
 export const metadata: Metadata = {
   title: "Berita | SMP Islam Modern Al-Fakhir",
-  description: "Developed by Nozazi",
+  description: "Developed by Feri",
 };
 const page = async () => {
   const blogData: BlogType[] = await getBlog();

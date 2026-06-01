@@ -6,7 +6,7 @@ import ProofPaymentSection from "@/component/authentication/ProofPaymentSection"
 
 export const metadata: Metadata = {
   title: "SMP Islam Modern AlFakhir | Proof of Payment",
-  description: "Developed by Nozazi",
+  description: "Developed by Feri",
 };
 const page = () => {
   return (

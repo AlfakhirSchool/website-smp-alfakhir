@@ -4,7 +4,7 @@ import Layout from "@/component/layout/Layout";
 
 export const metadata: Metadata = {
   title: "Buletin Al-Fakhir | SMP Islam Modern Al-Fakhir",
-  description: "Developed by Nozazi",
+  description: "Developed by Feri",
 };
 
 const page = () => {

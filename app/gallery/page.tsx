@@ -7,7 +7,7 @@ import GalleryPages from "@/component/gallery/GalleryPages";
 
 export const metadata: Metadata = {
   title: "Gallery Pages | SMP Islam Modern Al-Fakhir",
-  description: "Developed by Nozazi",
+  description: "Developed by Feri",
 };
 
 const page = () => {
