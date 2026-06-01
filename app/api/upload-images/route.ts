@@ -68,9 +68,10 @@ export async function POST(req: NextRequest) {
       url: result.data.webViewLink,
     });
   } catch (error) {
-    console.error(error);
+    console.error("Upload Error:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { message: "Something went wrong" },
+      { message: errorMessage },
       { status: 500 }
     );
   }

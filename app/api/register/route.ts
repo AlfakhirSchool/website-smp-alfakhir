@@ -77,9 +77,10 @@ export async function POST(req: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error(error);
+    console.error("Registration Error:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { message: "Something went wrong" },
+      { message: errorMessage },
       { status: 500 }
     );
   }

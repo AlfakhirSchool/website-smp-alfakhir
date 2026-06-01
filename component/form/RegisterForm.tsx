@@ -56,8 +56,9 @@ const RegisterForm = () => {
       setTimeout(() => {
         router.push("/proof-payment");
       }, 4000);
-    } catch (error) {
-      toast.error("Something went wrong.", { position: "top-right" });
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || "Something went wrong.";
+      toast.error(errorMessage, { position: "top-right" });
     }
   };
 

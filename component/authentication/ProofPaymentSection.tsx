@@ -39,8 +39,9 @@ const ProofPaymentSection = () => {
           router.push("/"); // Redirect to home or dashboard
         }, 2000);
       }
-    } catch (error) {
-      toast.error("Gagal mengunggah bukti pembayaran. Silakan coba lagi.", { position: "top-right" });
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || "Gagal mengunggah bukti pembayaran. Silakan coba lagi.";
+      toast.error(errorMessage, { position: "top-right" });
       console.error(error);
     } finally {
       setLoading(false);
