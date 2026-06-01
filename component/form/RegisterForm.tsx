@@ -54,7 +54,7 @@ const RegisterForm = () => {
       reset();
       setStep(1);
       setTimeout(() => {
-        router.push("https://pendaftaran.smpialfakhir.sch.id/pembayaran.html");
+        router.push("/proof-payment");
       }, 4000);
     } catch (error) {
       toast.error("Something went wrong.", { position: "top-right" });
