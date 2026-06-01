@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { google } from "googleapis";
 
+function formatPrivateKey(key: string | undefined) {
+  if (!key) return undefined;
+  let cleaned = key.replace(/"/g, '').replace(/\\n/g, '').replace(/\n/g, '');
+  cleaned = cleaned.replace('-----BEGIN PRIVATE KEY-----', '').replace('-----END PRIVATE KEY-----', '').replace(/\s+/g, '');
+  return `-----BEGIN PRIVATE KEY-----\n${cleaned.match(/.{1,64}/g)?.join('\n')}\n-----END PRIVATE KEY-----\n`;
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -8,11 +15,7 @@ export async function POST(req: NextRequest) {
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_CLIENT_EMAIL,
-
-        private_key: process.env.GOOGLE_PRIVATE_KEY
-          ?.replace(/\\n/g, "\n")
-          ?.replace(/^"|"$/g, "")
-          ?.trim(),
+        private_key: formatPrivateKey(process.env.GOOGLE_PRIVATE_KEY),
       },
       scopes: [
         "https://www.googleapis.com/auth/drive",
