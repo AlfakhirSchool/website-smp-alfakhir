@@ -9,9 +9,8 @@ const PengumumanPage = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const pdfUrl = "https://drive.google.com/file/d/1QkfWCN4TcqNbHEWSyJlJ3aQMJwC9PDwU/preview";
-  const downloadUrl = "https://drive.google.com/file/d/1QkfWCN4TcqNbHEWSyJlJ3aQMJwC9PDwU/view?usp=sharing";
+  const pdfUrl = "https://drive.google.com/file/d/1hkoBfGNYBmqPrbCwPfoIE4QbxF5nooo9/preview";
+  const downloadUrl = "https://drive.google.com/file/d/1hkoBfGNYBmqPrbCwPfoIE4QbxF5nooo9/view?usp=sharing";
 
   if (!mounted) return null;
 
