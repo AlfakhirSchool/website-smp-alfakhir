@@ -70,6 +70,7 @@ export async function POST(req: NextRequest) {
             body["pekerjaan-orangtua"],
             body["penghasilan-perbulan-orangtua"],
             body["payment-method"],
+            "Pending" // Status Default
           ],
         ],
       },
