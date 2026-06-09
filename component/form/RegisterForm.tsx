@@ -592,14 +592,17 @@ const RegisterForm = () => {
             <div className="col-xl-12">
               <div className="tf__login_imput">
                 <label>Pembayaran Via</label>
-                <input
-                  type="text"
-                  placeholder="e.g Transfer Bank, CASH, Dana, etc."
-                  autoComplete="off"
+                <select
                   {...register("payment-method", {
-                    required: "Metode pembayaran harus diisi",
+                    required: "Metode pembayaran harus dipilih",
                   })}
-                />
+                  className="form-control"
+                  style={{ width: "100%", padding: "10px", border: "1px solid #ddd", borderRadius: "5px" }}
+                >
+                  <option value="">-- Pilih Metode Pembayaran --</option>
+                  <option value="Transfer Bank">Transfer Bank</option>
+                  <option value="Cash">Cash</option>
+                </select>
                 {errors["payment-method"] && (
                   <p className="text-danger">
                     {errors["payment-method"].message}
