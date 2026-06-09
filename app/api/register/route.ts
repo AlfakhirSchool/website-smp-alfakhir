@@ -40,11 +40,12 @@ export async function POST(req: NextRequest) {
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "data-pendaftaran!B4:Y4",
+      range: "data-pendaftaran!A4:A",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
           [
+            "", // Column A is empty margin
             newId,
             new Date().toLocaleString("en-US", {
               timeZone: "Asia/Jakarta",
