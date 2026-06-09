@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     const getRows = await sheets.spreadsheets.values.get({
       auth,
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "data-pendaftaran!A1:A1000", // Assuming your sheet name is Sheet1
+      range: "data-pendaftaran!A4:A1000", // Start from row 4 because of headers
     });
 
     const numRows = getRows.data.values ? getRows.data.values.length : 0;
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "data-pendaftaran!A1:Z1",
+      range: "data-pendaftaran!A4:Z4",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
