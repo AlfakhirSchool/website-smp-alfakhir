@@ -45,9 +45,12 @@ const RegisterForm = () => {
     mode: "onChange",
   });
   const [step, setStep] = React.useState(1);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   const router = useRouter();
 
   const onSubmit = async (data: FormData) => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     try {
       const response = await axios.post("/api/register", data);
       toast.success("Registration successful!", { position: "top-right" });
@@ -59,6 +62,8 @@ const RegisterForm = () => {
     } catch (error: any) {
       const errorMessage = error.response?.data?.message || "Something went wrong.";
       toast.error(errorMessage, { position: "top-right" });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -614,8 +619,8 @@ const RegisterForm = () => {
           <button type="button" className="common_btn mb-3" onClick={prevStep}>
             Back
           </button>
-          <button type="submit" className="common_btn">
-            Submit
+          <button type="submit" className="common_btn" disabled={isSubmitting}>
+            {isSubmitting ? "Memproses..." : "Submit"}
           </button>
         </div>
       )}
