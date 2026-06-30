@@ -33,6 +33,11 @@ type FormData = {
   "payment-method": string;
 };
 
+const REKENING_INFO = [
+  { nama: "SMPIT Al Fakhir", nomor: "7344438026" },
+  { nama: "Yayasan Prestasi Belia Indonesia", nomor: "7344413171" },
+];
+
 const RegisterForm = () => {
   const {
     register,
@@ -46,19 +51,40 @@ const RegisterForm = () => {
   });
   const [step, setStep] = React.useState(1);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [buktiFile, setBuktiFile] = React.useState<File | null>(null);
+  const [buktiPreview, setBuktiPreview] = React.useState<string | null>(null);
   const router = useRouter();
+
+  const handleBuktiChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const f = e.target.files?.[0];
+    if (!f) return;
+    setBuktiFile(f);
+    setBuktiPreview(URL.createObjectURL(f));
+  };
 
   const onSubmit = async (data: FormData) => {
     if (isSubmitting) return;
+    if (data["payment-method"] === "Transfer Bank" && !buktiFile) {
+      toast.error("Silakan unggah bukti pembayaran terlebih dahulu.", { position: "top-right" });
+      return;
+    }
     setIsSubmitting(true);
     try {
-      const response = await axios.post("/api/register", data);
-      toast.success("Registration successful!", { position: "top-right" });
+      let buktiUrl = "";
+      if (buktiFile) {
+        const formData = new FormData();
+        formData.append("file", buktiFile);
+        formData.append("name", data["nama-lengkap"]);
+        const uploadRes = await axios.post("/api/upload-images", formData);
+        buktiUrl = uploadRes.data.url;
+      }
+      await axios.post("/api/register", { ...data, "bukti-pembayaran": buktiUrl });
+      toast.success("Pendaftaran berhasil!", { position: "top-right" });
       reset();
       setStep(1);
-      setTimeout(() => {
-        router.push("/proof-payment");
-      }, 4000);
+      setBuktiFile(null);
+      setBuktiPreview(null);
+      setTimeout(() => router.push("/"), 3000);
     } catch (error: any) {
       const errorMessage = error.response?.data?.message || "Something went wrong.";
       toast.error(errorMessage, { position: "top-right" });
@@ -606,7 +632,6 @@ const RegisterForm = () => {
                 >
                   <option value="">-- Pilih Metode Pembayaran --</option>
                   <option value="Transfer Bank">Transfer Bank</option>
-                  <option value="Cash">Cash</option>
                 </select>
                 {errors["payment-method"] && (
                   <p className="text-danger">
@@ -615,6 +640,36 @@ const RegisterForm = () => {
                 )}
               </div>
             </div>
+
+            {watch("payment-method") === "Transfer Bank" && (
+              <div className="col-xl-12">
+                <div style={{ background: "#f8f9fa", padding: "20px", borderRadius: "10px", marginBottom: "20px", border: "1px solid #eee" }}>
+                  <h4 style={{ fontWeight: "600", marginBottom: "15px", borderBottom: "1px solid #ddd", paddingBottom: "10px" }}>Informasi Rekening</h4>
+                  {REKENING_INFO.map((r) => (
+                    <div key={r.nomor} style={{ marginBottom: "15px" }}>
+                      <div style={{ fontSize: "14px", color: "#666" }}>Atas Nama:</div>
+                      <div style={{ fontWeight: "bold" }}>{r.nama}</div>
+                      <div style={{ fontSize: "20px", fontWeight: "700", color: "#2E7D32", letterSpacing: "1px" }}>{r.nomor}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="tf__login_imput mb-3">
+                  <label>Upload Bukti Pembayaran</label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleBuktiChange}
+                    style={{ padding: "10px", border: "2px dashed #ccc", width: "100%", borderRadius: "8px", background: "#fafafa" }}
+                  />
+                </div>
+                {buktiPreview && (
+                  <div className="mb-3" style={{ textAlign: "center" }}>
+                    <p style={{ fontSize: "14px", color: "#555" }}>Preview:</p>
+                    <img src={buktiPreview} alt="Preview Bukti" style={{ maxWidth: "100%", maxHeight: "300px", borderRadius: "8px" }} />
+                  </div>
+                )}
+              </div>
+            )}
           </div>
           <button type="button" className="common_btn mb-3" onClick={prevStep}>
             Back
